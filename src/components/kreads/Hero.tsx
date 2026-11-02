@@ -39,7 +39,7 @@ const HERO_PUBLIC_IDS = [
  * Permet un affichage quasi-instantané avant que la vidéo soit prête.
  */
 function cloudinaryPoster(publicId: string): string {
-  return `https://res.cloudinary.com/${CLOUD_NAME}/video/upload/q_auto,f_jpg,so_0/${publicId}.jpg`;
+  return `https://res.cloudinary.com/${CLOUD_NAME}/video/upload/q_auto,f_jpg,so_0,w_540,c_limit/${publicId}.jpg`;
 }
 
 /* ─────────────────────────────────────────────────────────────

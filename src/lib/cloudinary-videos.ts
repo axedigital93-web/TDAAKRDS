@@ -13,9 +13,12 @@ const CLOUD_NAME = "mn6mspfb";
  * Transformations appliquées :
  * - `q_auto`  → qualité adaptative (réduit le poids sans perte visible)
  * - `f_auto`  → format optimal selon le navigateur (WebM, MP4…)
+ * - `w_540,c_limit` → 540px max (les tuiles font ≤ 420px)
+ * - `du_15`   → 15 premières secondes seulement (aperçus en boucle)
+ * - `ac_none` → pas de piste audio (vidéos muettes)
  */
 export function cloudinaryVideo(publicId: string): string {
-  return `https://res.cloudinary.com/${CLOUD_NAME}/video/upload/q_auto,f_auto/${publicId}`;
+  return `https://res.cloudinary.com/${CLOUD_NAME}/video/upload/q_auto:eco,f_auto,w_540,c_limit,du_15,ac_none/${publicId}`;
 }
 
 /* ── Public IDs des 9 vidéos ── */

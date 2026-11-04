@@ -30,7 +30,7 @@ export function FinalCta() {
       </Reveal>
 
       <Reveal delay={0.7} className="mt-12">
-        <MagneticButton href="https://wa.me/237670042210?text=Bonjour/Bonsoir%2C%20je%20souhaite%20r%C3%A9server%20un%20audit%20gratuit." target="_blank" rel="noopener noreferrer" size="lg" pulse>
+        <MagneticButton href="https://wa.me/237650437514?text=Bonjour/Bonsoir%2C%20je%20souhaite%20r%C3%A9server%20un%20audit%20gratuit." target="_blank" rel="noopener noreferrer" size="lg" pulse>
           Réserver un échange gratuit
         </MagneticButton>
       </Reveal>

@@ -120,7 +120,7 @@ const [active, setActive] = useState("hero");
               ))}
             </ul>
             <a
-              href="https://wa.me/237670042210?text=Bonjour/Bonsoir%2C%20je%20souhaite%20r%C3%A9server%20un%20audit%20gratuit."
+              href="https://wa.me/237650437514?text=Bonjour/Bonsoir%2C%20je%20souhaite%20r%C3%A9server%20un%20audit%20gratuit."
               target="_blank"
               rel="noopener noreferrer"
               className="hidden shrink-0 rounded-full border border-primary/50 px-5 py-2 text-sm transition-colors duration-500 hover:bg-primary/10 lg:inline-block"
@@ -181,7 +181,7 @@ const [active, setActive] = useState("hero");
               ))}
             </ul>
             <a
-              href="https://wa.me/237670042210?text=Bonjour/Bonsoir%2C%20je%20souhaite%20r%C3%A9server%20un%20audit%20gratuit."
+              href="https://wa.me/237650437514?text=Bonjour/Bonsoir%2C%20je%20souhaite%20r%C3%A9server%20un%20audit%20gratuit."
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMenuOpen(false)}

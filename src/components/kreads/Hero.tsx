@@ -376,7 +376,7 @@ export function Hero() {
 
             <Reveal delay={0.75} className="mt-10 flex flex-wrap items-center justify-center gap-4 md:justify-start">
               <MagneticButton href="#packs">Découvrir nos packs</MagneticButton>
-              <MagneticButton href="https://wa.me/237670042210?text=Bonjour/Bonsoir%2C%20je%20souhaite%20r%C3%A9server%20un%20audit%20gratuit." variant="outline" target="_blank" rel="noopener noreferrer">
+              <MagneticButton href="https://wa.me/237650437514?text=Bonjour/Bonsoir%2C%20je%20souhaite%20r%C3%A9server%20un%20audit%20gratuit." variant="outline" target="_blank" rel="noopener noreferrer">
                 Réserver un audit
               </MagneticButton>
             </Reveal>

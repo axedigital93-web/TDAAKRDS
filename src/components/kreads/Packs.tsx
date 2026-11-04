@@ -170,7 +170,7 @@ className="text-center text-[clamp(1.6rem,4.2vw,3.6rem)] font-bold"
 
                   <div className="mt-10">
                     <MagneticButton 
-                      href={`https://wa.me/237670042210?text=${encodeURIComponent(`Bonjour/Bonsoir, je souhaite lancer mon projet avec le Pack ${pack.name}`)}`} 
+                      href={`https://wa.me/237650437514?text=${encodeURIComponent(`Bonjour/Bonsoir, je souhaite lancer mon projet avec le Pack ${pack.name}`)}`} 
                       target="_blank" 
                       rel="noopener noreferrer" 
                       className="w-full"

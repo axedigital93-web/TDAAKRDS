@@ -6,6 +6,7 @@ type Pack = {
   name: string;
   price: number;
   period?: string;
+  prefix?: string;
   pitch: string;
   groups: { label?: string; items: string[] }[];
   featured?: boolean;
@@ -15,7 +16,7 @@ type Pack = {
 const packs: Pack[] = [
   {
     name: "Starter",
-    price: 21000,
+    price: 15000,
     pitch: "Pour tester un produit ou une nouvelle offre.",
     dim: true,
     groups: [
@@ -30,7 +31,7 @@ const packs: Pack[] = [
   },
   {
     name: "Growth",
-    price: 45000,
+    price: 35000,
     pitch: "Pour accélérer les performances.",
     featured: true,
     groups: [
@@ -49,7 +50,8 @@ const packs: Pack[] = [
   {
     name: "Scale",
     price: 200000,
-    period: "par mois",
+    prefix: "À partir de",
+    period: "/mois",
     pitch:
       "Pour les entreprises qui veulent améliorer continuellement leurs performances publicitaires.",
     groups: [
@@ -135,13 +137,13 @@ className="text-center text-[clamp(1.6rem,4.2vw,3.6rem)] font-bold"
                   )}
 
                   <h3 className="font-display text-2xl font-medium">Pack {pack.name}</h3>
-                  <p className="mt-6 font-display text-[clamp(2.2rem,4vw,3.4rem)] font-semibold leading-none">
-                    <Counter to={pack.price} duration={1.8} />
-                    <span className="ml-2 text-lg font-normal text-muted-foreground">FCFA</span>
-                  </p>
-                  {pack.period && (
-                    <p className="mt-1 text-sm text-muted-foreground">{pack.period}</p>
+                  {pack.prefix && (
+                    <p className="mt-6 text-sm text-muted-foreground">{pack.prefix}</p>
                   )}
+                  <p className={`${pack.prefix ? "mt-1" : "mt-6"} font-display text-[clamp(2.2rem,4vw,3.4rem)] font-semibold leading-none`}>
+                    <Counter to={pack.price} duration={1.8} />
+                    <span className="ml-2 text-lg font-normal text-muted-foreground">FCFA{pack.period}</span>
+                  </p>
                   <p className="mt-5 text-muted-foreground">{pack.pitch}</p>
 
                   <div className="mt-8 space-y-6">

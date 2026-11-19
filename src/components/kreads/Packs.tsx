@@ -1,14 +1,16 @@
-import { Check } from "lucide-react";
+import { Check, ShieldCheck } from "lucide-react";
 import { BlurWords, Counter, Reveal } from "./motion-primitives";
 import { MagneticButton, TiltCard } from "./interactive";
 
 type Pack = {
   name: string;
-  price: number;
+  price?: number;
   period?: string;
   prefix?: string;
   pitch: string;
   groups: { label?: string; items: string[] }[];
+  cta: string;
+  whatsapp: string;
   featured?: boolean;
   dim?: boolean;
 };
@@ -16,64 +18,40 @@ type Pack = {
 const packs: Pack[] = [
   {
     name: "Starter",
-    price: 15000,
-    pitch: "Pour tester un produit ou une nouvelle offre.",
+    price: 7000,
+    pitch: "Pour tester un produit avant d'investir plus.",
     dim: true,
+    cta: "Je lance mon test",
+    whatsapp: "Bonjour/Bonsoir, je souhaite lancer mon test avec le Pack Starter",
     groups: [
       {
         items: [
-          "3 vidéos publicitaires",
-          "3 angles marketing distincts",
-          "Recommandations créatives",
+          "1 vidéo publicitaire",
+          "1 angle publicitaire",
+          "Un fichier répertoriant tous les angles publicitaires de votre produit",
         ],
       },
     ],
   },
   {
     name: "Growth",
-    price: 35000,
-    pitch: "Pour accélérer les performances.",
+    price: 18000,
+    pitch: "Pour multiplier les créatives et scaler ce qui marche.",
     featured: true,
-    groups: [
-      {
-        items: [
-          "Analyse stratégique",
-          "Carte de Croissance Produit",
-          "3 vidéos publicitaires UGC IA",
-          "3 angles marketing distincts",
-          "3 créatives statiques",
-          "Recommandations créatives",
-        ],
-      },
-    ],
+    cta: "Je scale maintenant",
+    whatsapp: "Bonjour/Bonsoir, je souhaite scaler avec le Pack Growth",
+    groups: [{ items: ["À partir de 3 vidéos publicitaires"] }],
   },
   {
     name: "Scale",
-    price: 200000,
-    prefix: "À partir de",
-    period: "/mois",
     pitch:
-      "Pour les entreprises qui veulent améliorer continuellement leurs performances publicitaires.",
+      "Vous réservez un audit : ensemble, nous analysons votre produit, définissons les angles publicitaires les plus porteurs et le nombre de vidéos adapté à vos objectifs. Vous recevez ensuite une offre sur mesure.",
+    cta: "Réserver un audit",
+    whatsapp: "Bonjour/Bonsoir, je souhaite réserver un audit (Pack Scale)",
     groups: [
       {
-        label: "Analyse mensuelle",
-        items: ["Analyse du produit", "Analyse des performances", "Analyse des concurrents"],
-      },
-      {
-        label: "Recherche créative",
-        items: ["Nouveaux angles marketing", "Nouveaux hooks", "Nouvelles idées de créatives"],
-      },
-      {
-        label: "Production créative par semaine",
-        items: ["10 vidéos publicitaires", "6 créas statiques"],
-      },
-      {
-        label: "Accompagnement",
-        items: ["Recommandations hebdomadaires", "Ajustements créatifs"],
-      },
-      {
-        label: "Livrable stratégique",
-        items: ["Rapport d'opportunités", "Plan d'action mensuel"],
+        label: "Pendant l'audit",
+        items: ["Analyse de votre produit", "Choix des angles publicitaires", "Nombre de vidéos à produire", "Analyse et gestion de votre compte publicitaire"],
       },
     ],
   },
@@ -88,6 +66,16 @@ export function Packs() {
         style={{ background: "oklch(0.3077 0.1223 293.38 / 0.5)" }}
       />
       <div className="mx-auto max-w-6xl">
+        <Reveal className="mx-auto mb-14 flex max-w-2xl items-center gap-4 rounded-2xl border border-primary/40 bg-primary/10 px-6 py-4 backdrop-blur">
+          <ShieldCheck className="size-8 shrink-0 text-primary" strokeWidth={1.6} aria-hidden="true" />
+          <p className="text-sm sm:text-base">
+            <span className="font-semibold">Entreprise légalement enregistrée.</span>{" "}
+            <span className="text-muted-foreground">
+              Kreads est une structure officiellement constituée : vous travaillez avec un partenaire fiable, en toute sécurité.
+            </span>
+          </p>
+        </Reveal>
+
         <BlurWords
           as="h2"
           text="Choisissez le pack adapté à votre ambition"
@@ -140,10 +128,16 @@ className="text-center text-[clamp(1.6rem,4.2vw,3.6rem)] font-bold"
                   {pack.prefix && (
                     <p className="mt-6 text-sm text-muted-foreground">{pack.prefix}</p>
                   )}
-                  <p className={`${pack.prefix ? "mt-1" : "mt-6"} font-display text-[clamp(2.2rem,4vw,3.4rem)] font-semibold leading-none`}>
-                    <Counter to={pack.price} duration={1.8} />
-                    <span className="ml-2 text-lg font-normal text-muted-foreground">FCFA{pack.period}</span>
-                  </p>
+                  {pack.price !== undefined ? (
+                    <p className={`${pack.prefix ? "mt-1" : "mt-6"} font-display text-[clamp(2.2rem,4vw,3.4rem)] font-semibold leading-none`}>
+                      <Counter to={pack.price} duration={1.8} />
+                      <span className="ml-2 text-lg font-normal text-muted-foreground">FCFA{pack.period}</span>
+                    </p>
+                  ) : (
+                    <p className="mt-6 font-display text-[clamp(1.6rem,3vw,2.4rem)] font-semibold leading-none">
+                      Sur audit
+                    </p>
+                  )}
                   <p className="mt-5 text-muted-foreground">{pack.pitch}</p>
 
                   <div className="mt-8 space-y-6">
@@ -172,7 +166,7 @@ className="text-center text-[clamp(1.6rem,4.2vw,3.6rem)] font-bold"
 
                   <div className="mt-10">
                     <MagneticButton 
-                      href={`https://wa.me/237650437514?text=${encodeURIComponent(`Bonjour/Bonsoir, je souhaite lancer mon projet avec le Pack ${pack.name}`)}`} 
+                      href={`https://wa.me/237650437514?text=${encodeURIComponent(pack.whatsapp)}`} 
                       target="_blank" 
                       rel="noopener noreferrer" 
                       className="w-full"
@@ -186,7 +180,7 @@ className="text-center text-[clamp(1.6rem,4.2vw,3.6rem)] font-bold"
                         }
                       }}
                     >
-                      Je lance mon projet
+                      {pack.cta}
                     </MagneticButton>
                   </div>
                 </div>
